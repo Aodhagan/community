@@ -19,6 +19,7 @@ tag(): user.code_operators_array
 tag(): user.code_operators_assignment
 tag(): user.code_operators_bitwise
 tag(): user.code_operators_math
+tag(): user.code_operators_pointer
 
 settings():
     user.code_private_function_formatter = "SNAKE_CASE"
@@ -42,8 +43,6 @@ state (struct | structure) <user.text>:
 state enum <user.text>:
     insert("enum ")
     insert(user.formatted_text(text, "PUBLIC_CAMEL_CASE"))
-
-toggle use: user.code_toggle_libraries()
 
 ## Simple aliases
 borrow: "&"
@@ -70,7 +69,7 @@ state use: user.code_import()
 
 use <user.code_libraries>:
     user.code_insert_library(code_libraries, "")
-    key(; enter)
+    key(enter)
 
 ## specialist flow control
 state if let some: user.insert_between("if let Some(", ")")
