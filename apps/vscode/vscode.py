@@ -20,6 +20,8 @@ os: mac
 and app.bundle: com.visualstudio.code.oss
 os: mac
 and app.bundle: com.todesktop.230313mzl4w4u92
+os: mac
+and app.bundle: com.exafunction.windsurf
 """
 mod.apps.vscode = """
 os: linux
@@ -431,3 +433,6 @@ class UserActions:
 
     def insert_snippet(body: str):
         actions.user.run_rpc_command("editor.action.insertSnippet", {"snippet": body})
+
+    def move_cursor_to_next_snippet_stop():
+        actions.user.vscode("jumpToNextSnippetPlaceholder")
